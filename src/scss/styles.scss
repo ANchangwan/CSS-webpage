@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
 @import "_variables";
 @import "_elements";
-@import "reset";
+// @import "reset";
 
 * {
   box-sizing: border-box;
@@ -18,10 +18,10 @@ body {
 
 header {
   position: fixed;
-  top: 20;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -30,7 +30,7 @@ header {
     place-self: center center;
     font-family: "Yrsa";
   }
-  > span {
+  span {
     justify-self: center;
   }
   nav {
@@ -96,7 +96,7 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 300px 0;
+  padding: 15% 0;
   .banner__title {
     font-size: 48px;
     font-weight: 600;
@@ -106,5 +106,44 @@ a {
     font-size: 32px;
     width: 50%;
     margin-bottom: 28px;
+    font-family: "Yrsa";
+  }
+  span {
+    font-size: 12px;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 50vh;
+  .gallery__item {
+    background-position: center;
+    background-size: cover;
+    transition: all 0.2s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Cherry-Sofa-Lookbook-19-web@2x.jpg");
+    &:first-child,
+    &:nth-child(5),
+    &:nth-child(7),
+    &:nth-child(12) {
+      grid-column-start: span 2;
+    }
+    &:hover {
+      filter: blur(5px);
+      > .gallery__text {
+        opacity: 1;
+        z-index: 6;
+      }
+    }
+    .gallery__text {
+      align-items: center;
+      font-size: 28px;
+      opacity: 0;
+    }
   }
 }
